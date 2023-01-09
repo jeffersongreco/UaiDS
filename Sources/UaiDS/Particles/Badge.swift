@@ -14,16 +14,16 @@ public struct Badge: View {
         Group {
             if !icon.isEmpty && !label.isEmpty {
                 
-                HStack (spacing: 2) {
+                HStack (spacing: Spacing.uaiTiny4) {
                     
                     Label("icon", systemImage: icon).labelStyle(.iconOnly)
                     Text(label)
                     
                 }
                 .uaiFont(.caption)
-                .padding(.leading, 4)
-                .padding(.trailing, 6)
-                .frame(height: 18)
+                .padding(.leading, Spacing.uaiTiny3)
+                .padding(.trailing, Spacing.uaiTiny2)
+                .frame(height: Spacing.uaiSmall1)
                 
             }
             
@@ -31,8 +31,8 @@ public struct Badge: View {
                 
                 Text(label)
                     .uaiFont(.caption)
-                    .padding(.horizontal, 6)
-                    .frame(height: 18)
+                    .padding(.horizontal, Spacing.uaiTiny2)
+                    .frame(height: Spacing.uaiSmall1)
                 
             }
             
@@ -40,7 +40,7 @@ public struct Badge: View {
                 
                 Label("icon", systemImage: icon).labelStyle(.iconOnly)
                     .uaiFont(.caption)
-                    .frame(width: 18, height: 18)
+                    .frame(width: Spacing.uaiSmall1, height: Spacing.uaiSmall1)
                 
             }
         }

@@ -1,6 +1,6 @@
 import SwiftUI
     
-public enum uaiScale {
+public struct Spacing {
     
     public static var uaiTiny4: CGFloat = 2
     public static var uaiTiny3: CGFloat = 4

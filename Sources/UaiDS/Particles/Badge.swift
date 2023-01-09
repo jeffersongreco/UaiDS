@@ -10,7 +10,7 @@ public struct Badge: View {
     var label: String = ""
     var role: Role?
     
-    fileprivate func BaseBadge() -> some View {
+    public var BaseBadge: some View {
         Group {
             if !icon.isEmpty && !label.isEmpty {
                 
@@ -46,27 +46,27 @@ public struct Badge: View {
         }
     }
     
-    fileprivate func BadgeRegular() -> some View {
+    public var BadgeRegular: some View {
         
-        BaseBadge()
+        BaseBadge
             .foregroundColor(Color.uaiAccent70)
             .background(Color.uaiAccent20)
             .clipShape(Capsule())
         
     }
     
-    fileprivate func BadgeAlert() -> some View {
+    public var BadgeAlert: some View {
         
-        BaseBadge()
+        BaseBadge
             .foregroundColor(Color.uaiAlert10)
             .background(Color.uaiAlert60)
             .clipShape(Capsule())
         
     }
     
-    fileprivate func BadgeWarning() -> some View {
+    public var BadgeWarning: some View {
         
-        BaseBadge()
+        BaseBadge
             .foregroundColor(Color.uaiWarning10)
             .background(Color.uaiWarning60)
             .clipShape(Capsule())
@@ -76,13 +76,13 @@ public struct Badge: View {
     public var body: some View {
         switch role {
         case .regular:
-            return AnyView(BadgeRegular())
+            return AnyView(BadgeRegular)
         case .alert:
-            return AnyView(BadgeAlert())
+            return AnyView(BadgeAlert)
         case .warning:
-            return AnyView(BadgeWarning())
+            return AnyView(BadgeWarning)
         default:
-            return AnyView(BadgeRegular())
+            return AnyView(BadgeRegular)
         }
     }
     

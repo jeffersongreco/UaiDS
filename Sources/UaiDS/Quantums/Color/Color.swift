@@ -4,6 +4,7 @@ public extension Color {
     
     /// Text
     static let uaiTextPrimary = Color("Text Primary", bundle: .module)
+    static let uaiTextPrimaryDark = Color("Text Primary Dark", bundle: .module)
     static let uaiTextSecondary = Color("Text Secondary", bundle: .module)
     static let uaiTextTertiary = Color("Text Tertiary", bundle: .module)
     static let uaiTextQuaternary = Color("Text Disable", bundle: .module)
@@ -37,5 +38,10 @@ public extension Color {
     /// Semantic - Warning
     static let uaiWarning10 = Color("Warning 10", bundle: .module)
     static let uaiWarning60 = Color("Warning 60", bundle: .module)
+    
+    /// Fill
+    static let uaiFillPrimary = Color("Fill Primary", bundle: .module)
+    static let uaiFillSecondary = Color("Fill Secondary", bundle: .module)
+    static let uaiFillTerciary = Color("Fill Tertiary", bundle: .module)
     
 }

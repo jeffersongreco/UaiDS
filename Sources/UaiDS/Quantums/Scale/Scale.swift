@@ -2,6 +2,8 @@ import SwiftUI
     
 public struct Spacing {
     
+    public static var uaiMicro2: CGFloat = 1
+    public static var uaiMicro1: CGFloat = 1.5
     public static var uaiTiny4: CGFloat = 2
     public static var uaiTiny3: CGFloat = 4
     public static var uaiTiny2: CGFloat = 6

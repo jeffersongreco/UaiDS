@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Badge: View {
+public struct UaiBadge: View {
     
     enum Role {
         case regular, alert, warning
@@ -92,9 +92,9 @@ struct Badge_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack {
-                Badge(icon: "circle.fill", label: "Label")
-                Badge(icon: "circle.fill", label: "Label", role: .alert)
-                Badge(icon: "circle.fill", label: "Label", role: .warning)
+                UaiBadge(icon: "circle.fill", label: "Label")
+                UaiBadge(icon: "circle.fill", label: "Label", role: .alert)
+                UaiBadge(icon: "circle.fill", label: "Label", role: .warning)
             }
             .padding()
         }

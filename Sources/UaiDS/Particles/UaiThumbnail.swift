@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Thumbnail: View {
+struct UaiThumbnail: View {
     
     enum Ratio {
         case wide
@@ -60,8 +60,8 @@ struct Thumbnail: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            Thumbnail()
-            Thumbnail(ratio: .wide)
+            UaiThumbnail()
+            UaiThumbnail(ratio: .wide)
         }
     }
 }

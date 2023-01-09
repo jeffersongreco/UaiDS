@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Uai Placeholder Avatar Small.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Uai Placeholder Avatar Small@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Uai Placeholder Avatar Small@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

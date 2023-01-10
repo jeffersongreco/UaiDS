@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Notification: View {
+public struct UaiNotification: View {
     
     var title: String
     var text: String
@@ -74,7 +74,7 @@ public struct Notification: View {
     public var body: some View {
         VStack (alignment: .leading, spacing: 0) {
             HStack {
-                VStack (alignment: .leading, spacing: Spacing.uaiTiny4) {
+                VStack (alignment: .leading, spacing: Spacing.uaiTiny3) {
                     Text(title)
                         .uaiFont(.headline)
                         .foregroundColor(Color.uaiTextPrimary)
@@ -145,16 +145,16 @@ public struct Notification: View {
         .frame(maxWidth: .infinity)
         .background {
             Blur(style: .systemThinMaterial)
-            RoundedRectangle(cornerRadius: Spacing.uaiMedium).stroke(Color.uaiFillTerciary, lineWidth: Spacing.uaiMicro)
+            //RoundedRectangle(cornerRadius: Spacing.uaiMedium).stroke(Color.uaiFillTerciary, lineWidth: Spacing.uaiMicro)
         }
         .clipShape(RoundedRectangle(cornerRadius: Spacing.uaiMedium))
     }
 }
 
-struct Notification_Previews: PreviewProvider {
+struct UaiNotification_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Notification(title: "Novo artigo", text: "Para não esquecer de se monitorar", imageWide: true, badge: "Dica", badgeIcon: "star.bubble.fill", actionEmphasis: false, actionLabel: "Aprender", actionIcon: "chevron.forward", actionAction: {print("click")}, action2Label: "Relembrar depois", action2Icon: "bell", action2Action: {print("click")})
+            UaiNotification(title: "Novo artigo", text: "Para não esquecer de se monitorar", imageWide: true, badge: "Dica", badgeIcon: "star.bubble.fill", actionEmphasis: false, actionLabel: "Aprender", actionIcon: "chevron.forward", actionAction: {print("click")}, action2Label: "Relembrar depois", action2Icon: "bell", action2Action: {print("click")})
         }
         .padding(Spacing.uaiSmall3)
     }

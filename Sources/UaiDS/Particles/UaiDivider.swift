@@ -3,7 +3,7 @@ import SwiftUI
 public struct UaiDivider: View {
     public var body: some View {
         Rectangle()
-            .fill(Color.uaiFillSecondary)
+            .fill(Color.uaiFillTerciary)
             .padding(0)
             .frame(height: Spacing.uaiMicro2)
             .frame(maxWidth: .infinity)

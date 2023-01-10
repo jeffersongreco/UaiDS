@@ -1,14 +1,80 @@
 import SwiftUI
 
-struct Notification: View {
+public struct Notification: View {
     
     var title: String
     var text: String
+    var image: String = ""
+    var imageWide: Bool = false
     
-    var body: some View {
+    enum Role {
+        case regular, alert, warning
+    }
+    var role: Role?
+    
+    var badge: String = ""
+    var badgeIcon: String = ""
+    
+    var actionEmphasis: Bool = false
+    
+    var actionLabel: String
+    var actionIcon: String
+    var actionAction: () -> Void
+    
+    var action2Label: String = ""
+    var action2Icon: String = ""
+    var action2Action = {print("click")}
+    
+    var dismissable: Bool = false
+    
+    
+    public var NotificationBadge: some View {
+        Group {
+            if badgeIcon.isEmpty {
+                UaiBadge(label: badge)
+                    .padding(.trailing, Spacing.uaiTiny2 * -1)
+                    .padding(.bottom, Spacing.uaiTiny2 * -1)
+            } else {
+                UaiBadge(icon: badgeIcon, label: badge)
+                    .padding(.trailing, Spacing.uaiTiny2 * -1)
+                    .padding(.bottom, Spacing.uaiTiny2 * -1)
+            }
+        }
+    }
+    
+    public var NotificationBadgeAlert: some View {
+        Group {
+            if badgeIcon.isEmpty {
+                return UaiBadge(label: badge, role: .alert)
+                    .padding(.trailing, Spacing.uaiTiny2 * -1)
+                    .padding(.bottom, Spacing.uaiTiny2 * -1)
+            } else {
+                return UaiBadge(icon: badgeIcon, label: badge, role: .alert)
+                    .padding(.trailing, Spacing.uaiTiny2 * -1)
+                    .padding(.bottom, Spacing.uaiTiny2 * -1)
+            }
+        }
+    }
+    
+    public var NotificationBadgeWarning: some View {
+        Group {
+            if badgeIcon.isEmpty {
+                return UaiBadge(label: badge, role: .warning)
+                    .padding(.trailing, Spacing.uaiTiny2 * -1)
+                    .padding(.bottom, Spacing.uaiTiny2 * -1)
+            } else {
+                return UaiBadge(icon: badgeIcon, label: badge, role: .alert)
+                    .padding(.trailing, Spacing.uaiTiny2 * -1)
+                    .padding(.bottom, Spacing.uaiTiny2 * -1)
+            }
+        }
+    }
+    
+    
+    public var body: some View {
         VStack (alignment: .leading, spacing: 0) {
-            HStack (spacing: Spacing.uaiSmall2) {
-                VStack (alignment: .leading) {
+            HStack {
+                VStack (alignment: .leading, spacing: Spacing.uaiTiny4) {
                     Text(title)
                         .uaiFont(.headline)
                         .foregroundColor(Color.uaiTextPrimary)
@@ -20,15 +86,28 @@ struct Notification: View {
                         .multilineTextAlignment(.leading)
                 }
                 
-                Spacer()
+                Spacer(minLength: Spacing.uaiSmall2)
                 
                 ZStack (alignment: .bottomTrailing) {
-                    UaiThumbnail()
-                    UaiBadge(label: "Aviso", role: .alert)
-                        .padding(.trailing, Spacing.uaiTiny2 * -1)
-                        .padding(.bottom, Spacing.uaiTiny2 * -1)
+                    if imageWide == false {
+                        UaiThumbnail(image: image)
+                    } else {
+                        UaiThumbnail(ratio: .wide, image: image)
+                    }
+                    
+                    if !badge.isEmpty {
+                        switch role {
+                        case .regular:
+                            AnyView(NotificationBadge)
+                        case .alert:
+                            AnyView(NotificationBadgeAlert)
+                        case .warning:
+                            AnyView(NotificationBadgeWarning)
+                        default:
+                            AnyView(NotificationBadge)
+                        }
+                    }
                 }
-                .frame(width: Spacing.uaiLarge3, height: Spacing.uaiLarge3)
             }
             .padding(.horizontal, Spacing.uaiMedium)
             .padding(.vertical, Spacing.uaiSmall2)
@@ -36,14 +115,28 @@ struct Notification: View {
             UaiDivider()
             
             HStack {
-                HStack {
-                    UaiButtonSmall(icon: "chevron.forward", label: "Registrar") {
+                if !action2Label.isEmpty && !action2Icon.isEmpty {
+                    HStack {
+                        actionEmphasis == false ?
+                        UaiButtonSmall(rank: .secondary, icon: actionIcon, label: actionLabel, action: actionAction) :
+                        UaiButtonSmall(rank: .primary, icon: actionIcon, label: actionLabel, action: actionAction)
+                        
+                        actionEmphasis == false ?
+                        UaiButtonSmall(rank: .terciary, icon: action2Icon, label: action2Label, action: action2Action) :
+                        UaiButtonSmall(rank: .secondary, icon: action2Icon, label: action2Label, action: action2Action)
+                    }
+                } else {
+                    actionEmphasis == false ?
+                    UaiButtonSmall(rank: .secondary, icon: actionIcon, label: actionLabel, action: actionAction) :
+                    UaiButtonSmall(rank: .primary, icon: actionIcon, label: actionLabel, action: actionAction)
+                }
+                
+                Spacer()
+                
+                if dismissable == false {
+                    UaiButtonSmall(rank: .terciary, icon: "xmark") {
                         print("click")
                     }
-                }
-                Spacer()
-                UaiButtonSmall(rank: .terciary, icon: "xmark") {
-                    print("click")
                 }
             }
             .padding(.horizontal, Spacing.uaiMedium)
@@ -52,7 +145,7 @@ struct Notification: View {
         .frame(maxWidth: .infinity)
         .background {
             Blur(style: .systemThinMaterial)
-            Color.uaiFillTerciary
+            RoundedRectangle(cornerRadius: Spacing.uaiMedium).stroke(Color.uaiFillTerciary, lineWidth: Spacing.uaiMicro)
         }
         .clipShape(RoundedRectangle(cornerRadius: Spacing.uaiMedium))
     }
@@ -60,6 +153,9 @@ struct Notification: View {
 
 struct Notification_Previews: PreviewProvider {
     static var previews: some View {
-        Notification(title: "Noite de sono", text: "Registre agora, antes que esqueça")
+        VStack {
+            Notification(title: "Novo artigo", text: "Para não esquecer de se monitorar", imageWide: true, badge: "Dica", badgeIcon: "star.bubble.fill", actionEmphasis: false, actionLabel: "Aprender", actionIcon: "chevron.forward", actionAction: {print("click")}, action2Label: "Relembrar depois", action2Icon: "bell", action2Action: {print("click")})
+        }
+        .padding(Spacing.uaiSmall3)
     }
 }

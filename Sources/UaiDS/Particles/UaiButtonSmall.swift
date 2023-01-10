@@ -5,7 +5,7 @@ struct UaiButtonSmall: View {
     @Environment(\.isEnabled) var isEnabled: Bool
     
     enum Rank {
-        case secondary, terciary, quaternary
+        case primary, secondary, terciary, quaternary
     }
 
     var rank: Rank?
@@ -83,6 +83,8 @@ struct UaiButtonSmall: View {
     var body: some View {
         
         switch rank {
+        case .primary:
+            return AnyView(BaseButtonPrimary)
         case .secondary:
             return AnyView(BaseButtonSecondary)
         case .terciary:

@@ -12,17 +12,15 @@ public struct UaiBadge: View {
     
     public var BaseBadge: some View {
         Group {
-            if !icon.isEmpty {
+            if icon.isEmpty {
                 
                 HStack (spacing: Spacing.uaiTiny4) {
                     
-                    Label("icon", systemImage: icon).labelStyle(.iconOnly)
                     Text(label)
                     
                 }
                 .uaiFont(.caption)
-                .padding(.leading, Spacing.uaiTiny3)
-                .padding(.trailing, Spacing.uaiTiny2)
+                .padding(.horizontal, Spacing.uaiTiny2)
                 .frame(height: Spacing.uaiSmall)
                 
             }
@@ -31,7 +29,7 @@ public struct UaiBadge: View {
                 
                 HStack (spacing: Spacing.uaiTiny4) {
                     
-                    Label("icon", systemImage: "exclamationmark.bubble.fill").labelStyle(.iconOnly)
+                    Label("icon", systemImage: icon).labelStyle(.iconOnly)
                     Text(label)
                     
                 }
@@ -91,7 +89,7 @@ struct Badge_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack {
-                UaiBadge(label: "Label")
+                UaiBadge(icon:  "circle.fill",label: "Label")
                 UaiBadge(label: "Label", role: .alert)
                 UaiBadge(label: "Label", role: .warning)
             }

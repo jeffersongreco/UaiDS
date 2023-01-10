@@ -7,12 +7,12 @@ public struct UaiBadge: View {
     }
     
     var icon: String = ""
-    var label: String = ""
+    var label: String
     var role: Role?
     
     public var BaseBadge: some View {
         Group {
-            if !icon.isEmpty && !label.isEmpty {
+            if !icon.isEmpty {
                 
                 HStack (spacing: Spacing.uaiTiny4) {
                     
@@ -23,26 +23,25 @@ public struct UaiBadge: View {
                 .uaiFont(.caption)
                 .padding(.leading, Spacing.uaiTiny3)
                 .padding(.trailing, Spacing.uaiTiny2)
-                .frame(height: Spacing.uaiSmall1)
+                .frame(height: Spacing.uaiSmall)
                 
             }
             
-            if icon.isEmpty {
+            else {
                 
-                Text(label)
-                    .uaiFont(.caption)
-                    .padding(.horizontal, Spacing.uaiTiny2)
-                    .frame(height: Spacing.uaiSmall1)
+                HStack (spacing: Spacing.uaiTiny4) {
+                    
+                    Label("icon", systemImage: "exclamationmark.bubble.fill").labelStyle(.iconOnly)
+                    Text(label)
+                    
+                }
+                .uaiFont(.caption)
+                .padding(.leading, Spacing.uaiTiny3)
+                .padding(.trailing, Spacing.uaiTiny2)
+                .frame(height: Spacing.uaiSmall)
                 
             }
             
-            if label.isEmpty {
-                
-                Label("icon", systemImage: icon).labelStyle(.iconOnly)
-                    .uaiFont(.caption)
-                    .frame(width: Spacing.uaiSmall1, height: Spacing.uaiSmall1)
-                
-            }
         }
     }
     
@@ -92,9 +91,9 @@ struct Badge_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack {
-                UaiBadge(icon: "circle.fill", label: "Label")
-                UaiBadge(icon: "circle.fill", label: "Label", role: .alert)
-                UaiBadge(icon: "circle.fill", label: "Label", role: .warning)
+                UaiBadge(label: "Label")
+                UaiBadge(label: "Label", role: .alert)
+                UaiBadge(label: "Label", role: .warning)
             }
             .padding()
         }

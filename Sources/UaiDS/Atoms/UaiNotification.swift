@@ -7,7 +7,7 @@ public struct UaiNotification: View {
     var image: String = ""
     var imageWide: Bool = false
     
-    enum Role {
+    public enum Role {
         case regular, alert, warning
     }
     var role: Role?
@@ -26,6 +26,38 @@ public struct UaiNotification: View {
     var action2Action = {print("click")}
     
     var dismissable: Bool = false
+    
+    public init(title: String,
+                text: String,
+                image: String? = "",
+                imageWide: Bool? = false,
+                role: Role? = nil,
+                badge: String,
+                badgeIcon: String,
+                actionEmphasis: Bool,
+                actionLabel: String,
+                actionIcon: String,
+                actionAction: @escaping () -> Void,
+                action2Label: String = "",
+                action2Icon: String = "",
+                action2Action: @escaping () -> Void = {print("click")},
+                dismissable: Bool? = false) {
+        self.title = title
+        self.text = text
+        self.image = image ?? ""
+        self.imageWide = imageWide ?? false
+        self.role = role
+        self.badge = badge
+        self.badgeIcon = badgeIcon
+        self.actionEmphasis = actionEmphasis
+        self.actionLabel = actionLabel
+        self.actionIcon = actionIcon
+        self.actionAction = actionAction
+        self.action2Label = action2Label
+        self.action2Icon = action2Icon
+        self.action2Action = action2Action
+        self.dismissable = dismissable ?? false
+    }
     
     
     public var NotificationBadge: some View {
@@ -154,6 +186,8 @@ public struct UaiNotification: View {
 struct UaiNotification_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
+            UaiNotification(title: "Noite de sono", text: "Registre agora, antes que esqueça", role: .alert, badge: "Aviso", badgeIcon: "exclamationmark.bubble.fill", actionEmphasis: true, actionLabel: "Registrar", actionIcon: "plus", actionAction: {print("click")})
+            
             UaiNotification(title: "Novo artigo", text: "Para não esquecer de se monitorar", imageWide: true, badge: "Dica", badgeIcon: "star.bubble.fill", actionEmphasis: false, actionLabel: "Aprender", actionIcon: "chevron.forward", actionAction: {print("click")}, action2Label: "Relembrar depois", action2Icon: "bell", action2Action: {print("click")})
         }
         .padding(Spacing.uaiSmall3)

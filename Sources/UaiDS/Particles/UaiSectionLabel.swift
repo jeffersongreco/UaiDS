@@ -5,6 +5,11 @@ public struct UaiSectionLabel: View {
     var title: String
     var text: String = ""
     
+    public init(title: String, text: String) {
+        self.title = title
+        self.text = text
+    }
+    
     public var body: some View {
         VStack (alignment: .leading, spacing: Spacing.uaiTiny3) {
             

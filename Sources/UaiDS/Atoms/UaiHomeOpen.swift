@@ -1,26 +1,35 @@
 import SwiftUI
 
-public struct UaiHomeOpen<Background: View, ContentTop: View, ContentBottom: View>: View {
+
+public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: View>: View {
     
-    @ViewBuilder var background: Background
-    @ViewBuilder var contentTop: ContentTop
-    @ViewBuilder var contentBottom: ContentBottom
+    var background: () -> Background
+    var contentBottom: () -> ContentBottom
+    var contentTop: () -> ContentTop
+
+    init(@ViewBuilder background: @escaping () -> Background,
+         @ViewBuilder contentBottom: @escaping () -> ContentBottom,
+         @ViewBuilder contentTop: @escaping () -> ContentTop) {
+        self.background = background
+        self.contentBottom = contentBottom
+        self.contentTop = contentTop
+    }
     
     public var body: some View {
         ZStack {
             
             ZStack {
-                background
+                background()
             }
             .ignoresSafeArea()
             
             ZStack (alignment: .bottomLeading) {
-                contentBottom
+                contentBottom()
             }
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth, alignment: .bottomLeading)
             
             ZStack (alignment: .topLeading) {
-                contentTop
+                contentTop()
             }
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth, alignment: .topLeading)
             
@@ -44,9 +53,9 @@ struct UaiHomeOpen_Previews: PreviewProvider {
             UaiHomeOpen(
                 background: {
                     Group { Image.uaiPlaceholderAvatarBig.resizable().aspectRatio(contentMode: .fill) }
-                }, contentTop: {
-                    Group { Image.uaiPlaceholderAvatar }
                 }, contentBottom: {
+                    Group { Image.uaiPlaceholderAvatar }
+                }, contentTop: {
                     Group { Image.uaiPlaceholderAvatar }
                 })
         }

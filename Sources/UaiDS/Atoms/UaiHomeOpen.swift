@@ -3,6 +3,8 @@ import SwiftUI
 
 public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: View>: View {
     
+    @Environment(\.safeAreaInsets) var safeAreaInsets
+    
     var background: () -> Background
     var contentBottom: () -> ContentBottom
     var contentTop: () -> ContentTop
@@ -16,12 +18,13 @@ public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: Vie
     }
     
     public var body: some View {
+        
         ZStack {
             
             ZStack {
                 background()
             }
-            .ignoresSafeArea()
+
             
             ZStack (alignment: .bottomLeading) {
                 contentBottom()
@@ -31,17 +34,12 @@ public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: Vie
             ZStack (alignment: .topLeading) {
                 contentTop()
             }
+            .padding(safeAreaInsets)
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth, alignment: .topLeading)
             
         }
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth)
-        .safeAreaInset(edge: .top) {
-            Blur(style: .systemMaterialDark)
-                .mask {
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0, green: 0, blue: 0, opacity: 0), Color.black]), startPoint: .bottom, endPoint: .top))
-                }
-        }
+        
         
     }
     

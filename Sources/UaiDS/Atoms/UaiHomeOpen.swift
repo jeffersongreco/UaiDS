@@ -7,7 +7,7 @@ public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: Vie
     var contentBottom: () -> ContentBottom
     var contentTop: () -> ContentTop
 
-    init(@ViewBuilder background: @escaping () -> Background,
+    public init(@ViewBuilder background: @escaping () -> Background,
          @ViewBuilder contentBottom: @escaping () -> ContentBottom,
          @ViewBuilder contentTop: @escaping () -> ContentTop) {
         self.background = background

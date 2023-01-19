@@ -57,27 +57,27 @@ struct UaiButtonSmall: View {
     public var BaseButtonPrimary: some View {
         BaseButton
             .background(isEnabled ? Color.uaiNeutral90 : Color.uaiFillTerciary)
-            .foregroundColor(isEnabled ? Color.uaiTextPrimaryDark : Color.uaiTextQuaternary)
+            .foregroundColor(isEnabled ? Color.uaiHeadingWhite : Color.uaiDisabled)
             .clipShape(Capsule())
     }
     
     public var BaseButtonSecondary: some View {
         BaseButton
             .background(Capsule().stroke(lineWidth: Spacing.uaiMicro))
-            .foregroundColor(isEnabled ? Color.uaiTextPrimary : Color.uaiTextQuaternary)
+            .foregroundColor(isEnabled ? Color.uaiHeading : Color.uaiDisabled)
             .clipShape(Capsule())
     }
     
     public var BaseButtonTertiary: some View {
         BaseButton
-            .foregroundColor(isEnabled ? Color.uaiTextPrimary : Color.uaiTextQuaternary)
+            .foregroundColor(isEnabled ? Color.uaiHeading : Color.uaiDisabled)
             .background(Capsule().stroke(lineWidth: Spacing.uaiMicro).foregroundColor(isEnabled ? Color.uaiFillPrimary : Color.uaiFillTerciary))
             .clipShape(Capsule())
     }
     
     public var BaseButtonQuaternary: some View {
         BaseButton
-            .foregroundColor(isEnabled ? Color.uaiTextPrimary : Color.uaiTextQuaternary)
+            .foregroundColor(isEnabled ? Color.uaiHeading : Color.uaiDisabled)
     }
     
     var body: some View {

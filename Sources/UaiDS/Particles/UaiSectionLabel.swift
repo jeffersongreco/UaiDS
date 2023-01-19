@@ -15,14 +15,14 @@ public struct UaiSectionLabel: View {
             
             Text(title)
                 .uaiFont(.headline)
-                .foregroundColor(Color.uaiTextPrimary)
+                .foregroundColor(Color.uaiHeading)
                 .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             if !text.isEmpty {
                 Text(text)
                     .uaiFont(.title2)
-                    .foregroundColor(Color.uaiTextTertiary)
+                    .foregroundColor(Color.uaiHeadingSubdued)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             

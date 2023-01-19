@@ -57,5 +57,6 @@ struct UaiHomeOpen_Previews: PreviewProvider {
                     Group { Image.uaiPlaceholderAvatar }
                 })
         }
+        .ignoresSafeArea()
     }
 }

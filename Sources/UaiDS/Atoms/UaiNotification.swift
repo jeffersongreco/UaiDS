@@ -109,11 +109,11 @@ public struct UaiNotification: View {
                 VStack (alignment: .leading, spacing: Spacing.uaiTiny3) {
                     Text(title)
                         .uaiFont(.headline)
-                        .foregroundColor(Color.uaiTextPrimary)
+                        .foregroundColor(Color.uaiHeading)
                         .lineLimit(1)
                     Text(text)
                         .uaiFont(.subhead)
-                        .foregroundColor(Color.uaiTextPrimary)
+                        .foregroundColor(Color.uaiText)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
                 }

@@ -24,7 +24,7 @@ public extension Color {
     
 }
 
-extension Color {
+public extension Color {
     
     // Colors
     /// Blue
@@ -40,20 +40,20 @@ extension Color {
     
 }
 
-protocol Theme {
+public protocol Theme {
     var accentColor: String { get }
     var uaiTheme: String { get }
 }
 
-struct ThemeBlue: Theme {
-    var accentColor: String = "Blue"
-    var uaiTheme: String = "uaiBlue"
+public struct ThemeBlue: Theme {
+    public var accentColor: String = "Blue"
+    public var uaiTheme: String = "uaiBlue"
 }
 
 public enum ThemeManager {
-    static let themes: [Theme] = [ThemeBlue()]
+    public static let themes: [Theme] = [ThemeBlue()]
     
-    func getTheme(_ theme: Int) -> Theme {
+    public func getTheme(_ theme: Int) -> Theme {
         Self.themes[theme]
     }
 }

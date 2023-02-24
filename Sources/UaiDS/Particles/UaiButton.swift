@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct UaiButton: View {    
+public struct UaiButton: View {    
     
     enum Style {
         case regular, iconHidden, textHidden
@@ -275,7 +275,7 @@ struct UaiButton: View {
     
     //MARK: Button
     
-    var body: some View {
+    public var body: some View {
         switch variant {
         case .accent:
             return AnyView(ButtonAccent)

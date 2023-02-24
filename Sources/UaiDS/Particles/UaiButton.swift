@@ -18,10 +18,10 @@ public struct UaiButton: View {
     public var style: Style
     public var icon: String?
     public var size: Size
-    public var variant: Variant?
+    public var variant: Variant
     public var action: () -> Void
     
-    public init(text: String, style: Style, icon: String? = nil, size: Size, variant: Variant? = nil, action: @escaping () -> Void) {
+    public init(text: String, style: Style, icon: String? = nil, size: Size, variant: Variant, action: @escaping () -> Void) {
         self.text = text
         self.style = style
         self.icon = icon
@@ -294,8 +294,6 @@ public struct UaiButton: View {
             return AnyView(ButtonSecondary)
         case .glass:
             return AnyView(ButtonGlass)
-        default:
-            return AnyView(ButtonSecondary)
         }
     }
 }

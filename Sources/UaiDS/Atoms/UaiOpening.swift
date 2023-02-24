@@ -1,7 +1,7 @@
 import SwiftUI
 
 
-public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: View>: View {
+public struct UaiOpening<Background: View, ContentBottom: View, ContentTop: View>: View {
     
     @Environment(\.safeAreaInsets) var safeAreaInsets
     
@@ -45,10 +45,10 @@ public struct UaiHomeOpen<Background: View, ContentBottom: View, ContentTop: Vie
     
 }
 
-struct UaiHomeOpen_Previews: PreviewProvider {
+struct UaiOpening_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
-            UaiHomeOpen(
+            UaiOpening(
                 background: {
                     Group { Image.uaiPlaceholderAvatarBig.resizable().aspectRatio(contentMode: .fill) }
                 }, contentBottom: {

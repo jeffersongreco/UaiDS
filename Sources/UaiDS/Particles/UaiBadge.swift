@@ -46,8 +46,8 @@ public struct UaiBadge: View {
     public var BadgeRegular: some View {
         
         BaseBadge
-            .foregroundColor(Color.uaiAccent70)
-            .background(Color.uaiAccent20)
+            //.foregroundColor(Color.uaiAccent70)
+            //.background(Color.uaiAccent20)
             .clipShape(Capsule())
         
     }
@@ -55,8 +55,8 @@ public struct UaiBadge: View {
     public var BadgeAlert: some View {
         
         BaseBadge
-            .foregroundColor(Color.uaiAlert10)
-            .background(Color.uaiAlert60)
+            //.foregroundColor(Color.uaiAlert10)
+            //.background(Color.uaiAlert60)
             .clipShape(Capsule())
         
     }
@@ -64,8 +64,8 @@ public struct UaiBadge: View {
     public var BadgeWarning: some View {
         
         BaseBadge
-            .foregroundColor(Color.uaiWarning10)
-            .background(Color.uaiWarning60)
+            //.foregroundColor(Color.uaiWarning10)
+            //.background(Color.uaiWarning60)
             .clipShape(Capsule())
         
     }

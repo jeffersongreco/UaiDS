@@ -17,7 +17,7 @@ public struct UaiFont: ViewModifier {
         case caption
         
         /// Button
-        case button, button2
+        case button, button2, button3
     }
     
     public var style: Style
@@ -49,8 +49,10 @@ public struct UaiFont: ViewModifier {
         case .caption: return content
                 .font(Font.custom("Inter-Regular", size: 10, relativeTo: .caption2)).lineSpacing(0)
         case .button: return content
-                .font(Font.custom("Inter-Medium", size: 14, relativeTo: .subheadline)).lineSpacing(0)
+                .font(Font.custom("Inter-Medium", size: 18, relativeTo: .headline)).lineSpacing(0)
         case .button2: return content
+                .font(Font.custom("Inter-Medium", size: 14, relativeTo: .subheadline)).lineSpacing(0)
+        case .button3: return content
                 .font(Font.custom("Inter-Medium", size: 12, relativeTo: .footnote)).lineSpacing(0)
             
         }

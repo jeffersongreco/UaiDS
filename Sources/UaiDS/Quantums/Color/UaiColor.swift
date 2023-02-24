@@ -1,5 +1,4 @@
 import SwiftUI
-import UIKit
 
 public extension Color {
     
@@ -26,69 +25,21 @@ public extension Color {
 
 public extension Color {
     
-    // Colors
-    /// Blue
-    static let uaiBlue10 = Color("Blue 10", bundle: .module)
-    static let uaiBlue20 = Color("Blue 20", bundle: .module)
-    static let uaiBlue30 = Color("Blue 30", bundle: .module)
-    static let uaiBlue40 = Color("Blue 40", bundle: .module)
-    static let uaiBlue50 = Color("Blue 50", bundle: .module)
-    static let uaiBlue60 = Color("Blue 60", bundle: .module)
-    static let uaiBlue70 = Color("Blue 70", bundle: .module)
-    static let uaiBlue80 = Color("Blue 80", bundle: .module)
-    static let uaiBlue90 = Color("Blue 90", bundle: .module)
+    /// Surface
+    static let uaiSurfaceBase = Color("Surface Base", bundle: .module)
+    static let uaiSurfaceLevel1 = Color("Surface Level1", bundle: .module)
+    static let uaiSurfaceLevel2 = Color("Surface Level2", bundle: .module)
+    static let uaiSurfaceContent = Color("Surface Content", bundle: .module)
+    static let uaiSurfaceGlass = Color("Surface Glass", bundle: .module)
+    static let uaiSurfaceInformative = Color("Surface Informative", bundle: .module)
+    static let uaiSurfaceAccent = Color("Surface Accent", bundle: .module)
+    static let uaiSurfacePrimary = Color("Surface Primary", bundle: .module)
+    
+    /// Shade
+    static let uaiShadeInput = Color("Shade Input", bundle: .module)
+    static let uaiShadeStroke = Color("Shade Stroke", bundle: .module)
+    static let uaiShadeDivider = Color("Shade Divider", bundle: .module)
+    static let uaiShadeFocus = Color("Shade Focus", bundle: .module)
     
 }
 
-public protocol Theme {
-    var accentColor: String { get }
-    var uaiTheme: String { get }
-}
-
-public struct ThemeBlue: Theme {
-    public var accentColor: String = "Blue"
-    public var uaiTheme: String = "uaiBlue"
-}
-
-public enum ThemeManager {
-    public static let themes: [Theme] = [ThemeBlue()]
-    
-    public func getTheme(_ theme: Int) -> Theme {
-        Self.themes[theme]
-    }
-}
-
-/*
- 
- #1. In AppDelegate, add this folowing code:
- 
- Import SwiftUI
- 
- class DataSource: ObservableObject {                      //
-    @Published var selectedTheme: Theme = ThemeBlue()      //
- }                                                         //
- 
- @main
- struct AppName: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(DataSource())           //
-        }
-    }
- }
- 
- #2. In each view, add this:
- 
- struct ContentView: View {
-    @EnvironmentObject var dataSource: DataSource
- 
- */
-
-public extension Color {
-    @EnvironmentObject var dataSource: DataSource
-    
-    /// Accent
-    static let uaiAccent50 = Color("\(dataSource.selectedTheme.accentColor) 50", bundle: .module)
-    
-}

@@ -56,7 +56,7 @@ struct UaiButtonSmall: View {
     
     public var BaseButtonPrimary: some View {
         BaseButton
-            .background(isEnabled ? Color.uaiNeutral90 : Color.uaiFillTerciary)
+            //.background(isEnabled ? Color.uaiNeutral90 : Color.uaiFillTerciary)
             .foregroundColor(isEnabled ? Color.uaiHeadingWhite : Color.uaiDisabled)
             .clipShape(Capsule())
     }
@@ -71,7 +71,7 @@ struct UaiButtonSmall: View {
     public var BaseButtonTertiary: some View {
         BaseButton
             .foregroundColor(isEnabled ? Color.uaiHeading : Color.uaiDisabled)
-            .background(Capsule().stroke(lineWidth: Spacing.uaiMicro).foregroundColor(isEnabled ? Color.uaiFillPrimary : Color.uaiFillTerciary))
+            //.background(Capsule().stroke(lineWidth: Spacing.uaiMicro).foregroundColor(isEnabled ? Color.uaiFillPrimary : Color.uaiFillTerciary))
             .clipShape(Capsule())
     }
     
@@ -99,7 +99,7 @@ struct UaiButtonSmall: View {
     }
 }
 
-struct UaiButton_Previews: PreviewProvider {
+struct UaiButtonSmall_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack {

@@ -6,7 +6,7 @@ struct TextLink: View {
     var destination: String
     
     var body: some View {
-        Link(text, destination: URL(string: destination)!).foregroundColor(Color.uaiAccent60)
+        Link(text, destination: URL(string: destination)!)//.foregroundColor(Color.uaiAccent60)
     }
 }
 

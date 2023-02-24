@@ -21,6 +21,15 @@ public struct UaiButton: View {
     public var variant: Variant?
     public var action: () -> Void
     
+    public init(text: String, style: Style, icon: String? = nil, size: Size, variant: Variant? = nil, action: @escaping () -> Void) {
+        self.text = text
+        self.style = style
+        self.icon = icon
+        self.size = size
+        self.variant = variant
+        self.action = action
+    }
+    
     
     
     //MARK: Label - Size, Style

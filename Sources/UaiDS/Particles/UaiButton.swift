@@ -1,25 +1,25 @@
 import SwiftUI
 
-public struct UaiButton: View {    
+public struct UaiButton: View {
     
-    enum Style {
+    public enum Style {
         case regular, iconHidden, textHidden
     }
     
-    enum Size {
+    public enum Size {
         case small, regular, big
     }
     
-    enum Variant {
+    public enum Variant {
         case accent, primary, secondary, glass
     }
     
-    var text: String
-    var style: Style
-    var icon: String?
-    var size: Size
-    var variant: Variant?
-    var action: () -> Void
+    public var text: String
+    public var style: Style
+    public var icon: String?
+    public var size: Size
+    public var variant: Variant?
+    public var action: () -> Void
     
     
     

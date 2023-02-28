@@ -3,7 +3,7 @@ import SwiftUI
 public struct UaiButton: View {
     
     public enum Style {
-        case regular, iconHidden, textHidden
+        case regular, iconHidden, textHidden, thumbnail
     }
     
     public enum Size {
@@ -17,14 +17,16 @@ public struct UaiButton: View {
     public var text: String
     public var style: Style
     public var icon: String?
+    public var thumb: String?
     public var size: Size
     public var variant: Variant
     public var action: () -> Void
     
-    public init(text: String, style: Style, icon: String? = nil, size: Size, variant: Variant, action: @escaping () -> Void) {
+    public init(text: String, style: Style, icon: String? = nil, thumb: String? = nil, size: Size, variant: Variant, action: @escaping () -> Void) {
         self.text = text
         self.style = style
         self.icon = icon
+        self.thumb = thumb
         self.size = size
         self.variant = variant
         self.action = action
@@ -78,6 +80,18 @@ public struct UaiButton: View {
         }
     }
     
+    public var LabelSmallThumb: some View {
+        Group {
+            Button(action: action) {
+                HStack (alignment: .center) {
+                    Image(thumb!).resizable().aspectRatio(contentMode: .fill)
+                }
+                .padding(Spacing.uaiTiny3)
+                .frame(width: Spacing.uaiMedium3, height: Spacing.uaiMedium3)
+            }
+        }
+    }
+    
     //Small
     
     public var LabelSmall: some View {
@@ -88,6 +102,8 @@ public struct UaiButton: View {
             return AnyView(LabelSmallIconHidden)
         case .textHidden:
             return AnyView(LabelSmallTextHidden)
+        case .thumbnail:
+            return AnyView(LabelSmallThumb)
         }
     }
     
@@ -136,6 +152,18 @@ public struct UaiButton: View {
         }
     }
     
+    public var LabelRegularThumb: some View {
+        Group {
+            Button(action: action) {
+                HStack (alignment: .center) {
+                    Image(thumb!).resizable().aspectRatio(contentMode: .fill)
+                }
+                .padding(Spacing.uaiTiny3)
+                .frame(width: Spacing.uaiMedium4, height: Spacing.uaiMedium4)
+            }
+        }
+    }
+    
     //Regular
     
     public var LabelRegular: some View {
@@ -146,6 +174,8 @@ public struct UaiButton: View {
             return AnyView(LabelRegularIconHidden)
         case .textHidden:
             return AnyView(LabelRegularTextHidden)
+        case .thumbnail:
+            return AnyView(LabelRegularThumb)
         }
     }
     
@@ -193,6 +223,18 @@ public struct UaiButton: View {
         }
     }
     
+    public var LabelBigThumb: some View {
+        Group {
+            Button(action: action) {
+                HStack (alignment: .center) {
+                    Image(thumb!).resizable().aspectRatio(contentMode: .fill)
+                }
+                .padding(Spacing.uaiTiny3)
+                .frame(width: Spacing.uaiLarge2, height: Spacing.uaiLarge2)
+            }
+        }
+    }
+    
     //Big
     
     public var LabelBig: some View {
@@ -203,6 +245,8 @@ public struct UaiButton: View {
             return AnyView(LabelBigIconHidden)
         case .textHidden:
             return AnyView(LabelBigTextHidden)
+        case .thumbnail:
+            return AnyView(LabelBigThumb)
         }
     }
     
@@ -299,14 +343,28 @@ public struct UaiButton: View {
 
 struct UaiButton_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            UaiButton(text: "Text", style: .regular, icon: "circle", size: .small, variant: .accent, action: { print("click") })
-            UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .accent, action: { print("click") })
-            UaiButton(text: "Text", style: .regular, icon: "circle", size: .big, variant: .accent, action: { print("click") })
-            UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .primary, action: { print("click") })
-            UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .secondary, action: { print("click") })
-            UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .glass, action: { print("click") })
+        HStack {
+            VStack (alignment: .leading) {
+                UaiButton(text: "Text", style: .regular, icon: "circle", size: .small, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .regular, icon: "circle", size: .big, variant: .accent, action: { print("click") })
+            }
+            VStack (alignment: .leading) {
+                UaiButton(text: "Text", style: .iconHidden, icon: "circle", size: .small, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .iconHidden, icon: "circle", size: .regular, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .iconHidden, icon: "circle", size: .big, variant: .accent, action: { print("click") })
+            }
+            VStack (alignment: .leading) {
+                UaiButton(text: "Text", style: .textHidden, icon: "circle", size: .small, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .textHidden, icon: "circle", size: .regular, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .textHidden, icon: "circle", size: .big, variant: .accent, action: { print("click") })
+            }
+            VStack (alignment: .leading) {
+                UaiButton(text: "Text", style: .thumbnail, icon: "circle", thumb: "Uai Placeholder Avatar Small", size: .small, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .thumbnail, icon: "circle", thumb: "Uai Placeholder Avatar Small", size: .regular, variant: .accent, action: { print("click") })
+                UaiButton(text: "Text", style: .thumbnail, icon: "circle", thumb: "Uai Placeholder Avatar Small", size: .big, variant: .accent, action: { print("click") })
+            }
         }
-        //.background(Image.uaiPlaceholderAvatarBig.resizable().aspectRatio(contentMode: .fill))
+        
     }
 }

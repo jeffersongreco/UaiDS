@@ -268,10 +268,7 @@ public struct UaiButton: View {
             ButtonLabel
                 .foregroundColor(Color.uaiHeading)
                 .background(
-                    ZStack {
-                        Blur(style: .systemThinMaterial)
-                        Color.uaiSurfaceGlass
-                    }
+                    UaiGlassBackground()
                 )
                 .clipShape(Capsule())
                 .overlay(
@@ -310,6 +307,6 @@ struct UaiButton_Previews: PreviewProvider {
             UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .secondary, action: { print("click") })
             UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .glass, action: { print("click") })
         }
-        .background(Image.uaiPlaceholderAvatarBig.resizable().aspectRatio(contentMode: .fill))
+        //.background(Image.uaiPlaceholderAvatarBig.resizable().aspectRatio(contentMode: .fill))
     }
 }

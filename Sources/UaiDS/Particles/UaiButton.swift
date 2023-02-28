@@ -84,7 +84,7 @@ public struct UaiButton: View {
         Group {
             Button(action: action) {
                 HStack (alignment: .center) {
-                    Image(thumb!).resizable().aspectRatio(contentMode: .fill)
+                    Image(thumb!).resizable().aspectRatio(contentMode: .fill).clipShape(Circle())
                 }
                 .padding(Spacing.uaiTiny3)
                 .frame(width: Spacing.uaiMedium3, height: Spacing.uaiMedium3)
@@ -156,7 +156,7 @@ public struct UaiButton: View {
         Group {
             Button(action: action) {
                 HStack (alignment: .center) {
-                    Image(thumb!).resizable().aspectRatio(contentMode: .fill)
+                    Image(thumb!).resizable().aspectRatio(contentMode: .fill).clipShape(Circle())
                 }
                 .padding(Spacing.uaiTiny3)
                 .frame(width: Spacing.uaiMedium4, height: Spacing.uaiMedium4)
@@ -227,7 +227,7 @@ public struct UaiButton: View {
         Group {
             Button(action: action) {
                 HStack (alignment: .center) {
-                    Image(thumb!).resizable().aspectRatio(contentMode: .fill)
+                    Image(thumb!).resizable().aspectRatio(contentMode: .fill).clipShape(Circle())
                 }
                 .padding(Spacing.uaiTiny3)
                 .frame(width: Spacing.uaiLarge2, height: Spacing.uaiLarge2)
@@ -365,6 +365,5 @@ struct UaiButton_Previews: PreviewProvider {
                 UaiButton(text: "Text", style: .thumbnail, icon: "circle", thumb: "Uai Placeholder Avatar Small", size: .big, variant: .accent, action: { print("click") })
             }
         }
-        
     }
 }

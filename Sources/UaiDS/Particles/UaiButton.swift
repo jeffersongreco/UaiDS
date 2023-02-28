@@ -270,7 +270,7 @@ public struct UaiButton: View {
                 .background(
                     ZStack {
                         Blur(style: .systemUltraThinMaterial)
-                        Color.uaiSurfaceGlass
+                        //Color.uaiSurfaceGlass
                     }
                 )
                 .clipShape(Capsule())
@@ -303,7 +303,9 @@ public struct UaiButton: View {
 struct UaiButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
+            UaiButton(text: "Text", style: .regular, icon: "circle", size: .small, variant: .accent, action: { print("click") })
             UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .accent, action: { print("click") })
+            UaiButton(text: "Text", style: .regular, icon: "circle", size: .big, variant: .accent, action: { print("click") })
             UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .primary, action: { print("click") })
             UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .secondary, action: { print("click") })
             UaiButton(text: "Text", style: .regular, icon: "circle", size: .regular, variant: .glass, action: { print("click") })

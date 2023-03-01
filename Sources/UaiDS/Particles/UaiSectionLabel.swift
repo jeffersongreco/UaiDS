@@ -30,7 +30,7 @@ public struct UaiSectionLabel: View {
         .padding(.top, Spacing.uaiMedium4)
         .padding(.bottom, Spacing.uaiLarge)
         .padding(.leading, Spacing.uaiMedium3)
-        .padding(.trailing, Spacing.uaiLarge2)
+        .padding(.trailing, Spacing.uaiLarge)
 
     }
 }

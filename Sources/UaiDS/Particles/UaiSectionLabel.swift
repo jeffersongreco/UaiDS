@@ -27,9 +27,10 @@ public struct UaiSectionLabel: View {
             }
             
         }
-        .padding(.top, Spacing.uaiTiny)
-        .padding(.bottom, Spacing.uaiLarge3)
-        .padding(.horizontal, Spacing.uaiMedium3)
+        .padding(.top, Spacing.uaiMedium4)
+        .padding(.bottom, Spacing.uaiLarge)
+        .padding(.leading, Spacing.uaiMedium3)
+        .padding(.trailing, Spacing.uaiLarge2)
 
     }
 }

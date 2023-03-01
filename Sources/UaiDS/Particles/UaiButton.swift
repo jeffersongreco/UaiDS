@@ -223,18 +223,26 @@ public struct UaiButton: View {
     
     //MARK: Variant
     
-    //Accent
-    
     public var ButtonAccent: some View {
         Group {
             ButtonLabel
                 .foregroundColor(Color.uaiHeadingWhite)
-                .background(Color.uaiSurfaceAccent)
+                .background(
+                    ZStack {
+                        Capsule()
+                            .fill(Color.uaiSurfaceAccent)
+                        Capsule()
+                            .fill(Color.white)
+                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 2, y: 2)
+                            .blendMode(.multiply)
+                    }
+                )
                 .clipShape(Capsule())
                 .overlay(
                     Capsule()
                         .stroke(Color.uaiShadeStroke)
                 )
+                .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 2, y: 2)
         }
     }
     
@@ -242,7 +250,17 @@ public struct UaiButton: View {
         Group {
             ButtonLabel
                 .foregroundColor(Color.uaiHeadingWhite)
-                .background(Color.uaiSurfacePrimary)
+                .background(
+                    ZStack {
+                        Capsule()
+                            .fill(Color.uaiSurfacePrimary)
+                        Capsule()
+                            .fill(Color.white)
+                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 2, y: 2)
+                            .blendMode(.multiply)
+                    }
+                    
+                )
                 .clipShape(Capsule())
                 .overlay(
                     Capsule()
@@ -255,11 +273,17 @@ public struct UaiButton: View {
         Group {
             ButtonLabel
                 .foregroundColor(Color.uaiHeading)
-                .clipShape(Capsule())
+                .background(
+                    Capsule()
+                        .fill(Color.white)
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 2, y: 2)
+                        .blendMode(.multiply)
+                )
                 .overlay(
                     Capsule()
                         .stroke(Color.uaiShadeStroke, lineWidth: Spacing.uaiMicro)
                 )
+                
         }
     }
     
@@ -268,13 +292,20 @@ public struct UaiButton: View {
             ButtonLabel
                 .foregroundColor(Color.uaiHeading)
                 .background(
-                    UaiGlassBackground()
+                    ZStack {
+                        UaiGlassBackground()
+                            .clipShape(Capsule())
+                        Capsule()
+                            .fill(Color.white)
+                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 2, y: 2)
+                            .blendMode(.multiply)
+                    }
                 )
-                .clipShape(Capsule())
                 .overlay(
                     Capsule()
                         .stroke(Color.uaiShadeStroke, lineWidth: Spacing.uaiMicro)
                 )
+                
         }
     }
     

@@ -23,9 +23,7 @@ public struct UaiListCard: View {
             ZStack {
                 Image(thumb).resizable().aspectRatio(contentMode: .fill)
             }
-            .frame(width: (UIScreen.screenWidth - Spacing.uaiMedium3 * 2 - Spacing.uaiSmall2 * 3) / 4, height: (UIScreen.screenWidth - Spacing.uaiMedium3 * 2 - Spacing.uaiSmall2 * 3) / 4)
-            .background(Color.black)
-            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .frame(width: (UIScreen.screenWidth - Spacing.uaiMedium3 * 2 - Spacing.uaiSmall2 * 3) / 4, height: (UIScreen.screenWidth - Spacing.uaiMedium3 * 2 - Spacing.uaiSmall2 * 3) / 4)            .clipShape(RoundedRectangle(cornerRadius: 18))
             .overlay(RoundedRectangle(cornerRadius: 18).stroke(Color.uaiShadeStroke, lineWidth: 1))
             .padding(14)
             

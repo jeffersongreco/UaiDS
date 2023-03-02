@@ -22,7 +22,7 @@ public struct UaiSectionLabel: View {
             if !text.isEmpty {
                 Text(text)
                     .uaiFont(.title2)
-                    .foregroundColor(Color.uaiHeadingSubdued)
+                    .foregroundColor(Color.uaiSubduedHeading)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             

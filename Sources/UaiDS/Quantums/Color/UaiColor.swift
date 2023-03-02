@@ -5,9 +5,12 @@ public extension Color {
     /// Text
     static let uaiHeading = Color("Heading", bundle: .module)
     static let uaiText = Color("Text", bundle: .module)
-    static let uaiTextSubdued = Color("Subdued Text", bundle: .module)
-    static let uaiHeadingSubdued = Color("Subdued Heading", bundle: .module)
+    static let uaiSubduedText = Color("Subdued Text", bundle: .module)
+    static let uaiSubduedHeading = Color("Subdued Heading", bundle: .module)
     static let uaiDisabled = Color("Disabled", bundle: .module)
+    static let uaiInformative = Color("Informative", bundle: .module)
+    static let uaiLink = Color("Link", bundle: .module)
+    static let uaiFocus = Color("Focus", bundle: .module)
     /// Text - White
     static let uaiHeadingWhite = Color("Heading White", bundle: .module)
     static let uaiTextWhite = Color("Text White", bundle: .module)

@@ -46,8 +46,8 @@ public struct UaiBadge: View {
     public var BadgeRegular: some View {
         
         BaseBadge
-            //.foregroundColor(Color.uaiAccent70)
-            //.background(Color.uaiAccent20)
+            .foregroundColor(Color.uaiInformative)
+            .background(Color.uaiSurfaceInformative)
             .clipShape(Capsule())
         
     }
